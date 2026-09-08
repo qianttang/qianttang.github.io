@@ -41,3 +41,7 @@
 .course-terms>span:not(.sr-only){display:block}
 @media(max-width:1000px){.research-overview-grid{gap:36px;grid-template-columns:1fr 1fr}.course{grid-template-columns:95px minmax(0,1fr) 145px;gap:18px}}
 @media(max-width:720px){.news-section,.research-details{padding:30px 0 34px}.news-list{margin-top:15px}.news-list li{grid-template-columns:1fr;gap:5px;padding:16px 0}.news-list p{font-size:12px}.news-list a{margin-left:4px}.research-jump{display:block;width:fit-content;margin:10px 0 0}.research-overview-grid{grid-template-columns:1fr;gap:29px;margin-top:26px}.research-overview-grid .research-areas h2{margin-top:0}.teaching-group{margin-top:32px}.teaching-group-heading{flex-direction:column;gap:5px;padding-bottom:15px}.teaching-group-heading h2{font-size:26px}.course{grid-template-columns:1fr;gap:8px;padding:22px 0}.course-code{font-size:11px;padding:0}.course h3{font-size:23px}.course-terms{display:flex;flex-wrap:wrap;gap:3px 16px;padding:0}.course-terms>span:not(.sr-only){display:inline-block}}
+
+/* Background biography */
+.hero-copy .bio{font-size:16px}
+.bio a{color:var(--green);text-decoration:underline;text-underline-offset:3px}
