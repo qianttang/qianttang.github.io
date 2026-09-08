@@ -6,67 +6,223 @@
   "cv": "assets/Qian-Tang-CV.pdf",
   "papers": [
     {
-      "id": "fastkqr", "year": "2026", "kind": "publication", "status": "JCGS",
+      "id": "fastkqr",
+      "year": "2026",
+      "kind": "publication",
+      "status": "JCGS",
       "title": "fastkqr: A Fast Algorithm for Kernel Quantile Regression",
       "authors": "Qian Tang, Yuwen Gu, and Boxiang Wang",
       "venue": "Journal of Computational and Graphical Statistics, 35(1), 395–405. Published online in 2025.",
       "summary": "Efficient computation for kernel quantile regression, including non-crossing quantile curves.",
       "topics": "quantile regression optimization kernels computation",
-      "links": [{"label":"Paper","url":"https://doi.org/10.1080/10618600.2025.2541004"},{"label":"Preprint","url":"https://arxiv.org/abs/2408.05393"},{"label":"Code","url":"https://github.com/qianttang/fastkqr"}],
+      "links": [
+        {
+          "label": "Paper",
+          "url": "https://doi.org/10.1080/10618600.2025.2541004"
+        },
+        {
+          "label": "Preprint",
+          "url": "https://arxiv.org/abs/2408.05393"
+        },
+        {
+          "label": "Code",
+          "url": "https://github.com/qianttang/fastkqr"
+        }
+      ],
       "bibtex": "@article{tang2026fastkqr,\n  title = {fastkqr: A Fast Algorithm for Kernel Quantile Regression},\n  author = {Tang, Qian and Gu, Yuwen and Wang, Boxiang},\n  journal = {Journal of Computational and Graphical Statistics},\n  year = {2026},\n  volume = {35},\n  number = {1},\n  pages = {395--405},\n  doi = {10.1080/10618600.2025.2541004}\n}"
     },
     {
-      "id": "quanda", "year": "2025", "kind": "publication", "status": "NeurIPS",
+      "id": "quanda",
+      "year": "2025",
+      "kind": "publication",
+      "status": "NeurIPS",
       "title": "QuanDA: Quantile-Based Discriminant Analysis for High-Dimensional Imbalanced Classification",
       "authors": "Qian Tang, Yuwen Gu, and Boxiang Wang",
       "venue": "Advances in Neural Information Processing Systems 38.",
       "summary": "Quantile-based classification for imbalanced data with many features and few observations.",
       "topics": "classification quantile regression high dimensional imbalance",
-      "links": [{"label":"Paper · PDF","url":"https://proceedings.neurips.cc/paper_files/paper/2025/file/ea34f9c3acb3de6fa29582ff469bcd6b-Paper-Conference.pdf"},{"label":"Code","url":"https://github.com/qianttang/QuanDA"}],
+      "links": [
+        {
+          "label": "Paper · PDF",
+          "url": "https://proceedings.neurips.cc/paper_files/paper/2025/file/ea34f9c3acb3de6fa29582ff469bcd6b-Paper-Conference.pdf"
+        },
+        {
+          "label": "Code",
+          "url": "https://github.com/qianttang/QuanDA"
+        }
+      ],
       "bibtex": "@inproceedings{tang2025quanda,\n  title = {{QuanDA}: Quantile-Based Discriminant Analysis for High-Dimensional Imbalanced Classification},\n  author = {Tang, Qian and Gu, Yuwen and Wang, Boxiang},\n  booktitle = {Advances in Neural Information Processing Systems},\n  volume = {38},\n  year = {2025},\n  url = {https://proceedings.neurips.cc/paper_files/paper/2025/file/ea34f9c3acb3de6fa29582ff469bcd6b-Paper-Conference.pdf}\n}"
     },
     {
-      "id": "fsa", "year": "2024", "kind": "publication", "status": "ICML",
+      "id": "fsa",
+      "year": "2024",
+      "kind": "publication",
+      "status": "ICML",
       "title": "Finite Smoothing Algorithm for High-Dimensional Support Vector Machines and Quantile Regression",
       "authors": "Qian Tang, Yikai Zhang, and Boxiang Wang",
       "venue": "Proceedings of the 41st International Conference on Machine Learning, PMLR 235, 47865–47884.",
       "summary": "Finite smoothing for accurate, efficient optimization of non-smooth statistical learning problems.",
       "topics": "optimization support vector machines quantile regression high dimensional computation",
-      "links": [{"label":"Paper","url":"https://proceedings.mlr.press/v235/tang24j.html"},{"label":"Code","url":"https://github.com/qianttang/hdqr"}],
+      "links": [
+        {
+          "label": "Paper",
+          "url": "https://proceedings.mlr.press/v235/tang24j.html"
+        },
+        {
+          "label": "Code",
+          "url": "https://github.com/qianttang/hdqr"
+        }
+      ],
       "bibtex": "@inproceedings{tang2024fsa,\n  title = {Finite Smoothing Algorithm for High-Dimensional Support Vector Machines and Quantile Regression},\n  author = {Tang, Qian and Zhang, Yikai and Wang, Boxiang},\n  booktitle = {Proceedings of the 41st International Conference on Machine Learning},\n  series = {Proceedings of Machine Learning Research},\n  volume = {235},\n  pages = {47865--47884},\n  year = {2024},\n  url = {https://proceedings.mlr.press/v235/tang24j.html}\n}"
     },
     {
-      "id": "atlas", "year": "2026", "kind": "manuscript", "status": "Status to confirm",
+      "id": "atlas",
+      "year": "2026",
+      "kind": "manuscript",
+      "status": "Status to confirm",
       "title": "The ATLAS Penalty: Auxiliary-Transformed Location-Aware Smoothing with Applications to Spatial Transcriptomics",
       "authors": "Qian Tang, Eric Chi, and Wenyi Wang",
       "venue": "STAI-X 2026 · Listed in the CV; final publication status to be confirmed.",
       "summary": "Location-aware smoothing for structured spatial transcriptomics data.",
       "topics": "spatial transcriptomics smoothing optimization atlas",
-      "links": [{"label":"OpenReview","url":"https://openreview.net/forum?id=n5VvlyCIT5"}]
+      "links": [
+        {
+          "label": "OpenReview",
+          "url": "https://openreview.net/forum?id=n5VvlyCIT5"
+        }
+      ]
     },
     {
-      "id": "win-score", "year": "2026", "kind": "manuscript", "status": "Under review",
+      "id": "win-score",
+      "year": "2026",
+      "kind": "manuscript",
+      "status": "Under review",
       "title": "Weighted Win Score Ratio for Composite Endpoints with Continuous Components",
       "authors": "Qian Tang, X. Cai, and Yeh-Fong Chen",
       "venue": "Submitted to the Journal of Biopharmaceutical Statistics.",
       "summary": "Statistical methodology for comparing treatments using composite clinical endpoints.",
       "topics": "clinical trials composite endpoints biostatistics win score",
-      "note": "Manuscript link forthcoming.", "links": []
+      "note": "Manuscript link forthcoming.",
+      "links": []
     },
     {
-      "id": "bayesian-quanda", "year": "Ongoing", "kind": "manuscript", "status": "In preparation",
+      "id": "bayesian-quanda",
+      "year": "Ongoing",
+      "kind": "manuscript",
+      "status": "In preparation",
       "title": "Bayesian Quantile-Based Discriminant Analysis",
       "authors": "Qian Tang and Galin Jones",
       "venue": "Research in progress.",
       "summary": "Developing Bayesian approaches to high-dimensional imbalanced classification and uncertainty quantification.",
       "topics": "bayesian classification uncertainty quantile regression high dimensional imbalance",
-      "note": "Preprint and code forthcoming.", "links": []
+      "note": "Preprint and code forthcoming.",
+      "links": []
     }
   ],
   "software": [
-    {"name":"QuanDA","description":"Quantile-based discriminant analysis for high-dimensional imbalanced classification.","source":"https://github.com/qianttang/QuanDA","cran":null},
-    {"name":"fastkqr","description":"Fast kernel quantile regression with support for non-crossing quantile curves.","source":"https://github.com/qianttang/fastkqr","cran":"https://cran.r-project.org/package=fastkqr"},
-    {"name":"hdqr","description":"Regularization paths for penalized quantile regression in high dimensions.","source":"https://github.com/qianttang/hdqr","cran":"https://cran.r-project.org/package=hdqr"},
-    {"name":"hdsvm","description":"Efficient solution paths for penalized support vector machines.","source":null,"cran":"https://cran.r-project.org/package=hdsvm"}
+    {
+      "name": "QuanDA",
+      "description": "Quantile-based discriminant analysis for high-dimensional imbalanced classification.",
+      "source": "https://github.com/qianttang/QuanDA",
+      "cran": null
+    },
+    {
+      "name": "fastkqr",
+      "description": "Fast kernel quantile regression with support for non-crossing quantile curves.",
+      "source": "https://github.com/qianttang/fastkqr",
+      "cran": "https://cran.r-project.org/package=fastkqr"
+    },
+    {
+      "name": "hdqr",
+      "description": "Regularization paths for penalized quantile regression in high dimensions.",
+      "source": "https://github.com/qianttang/hdqr",
+      "cran": "https://cran.r-project.org/package=hdqr"
+    },
+    {
+      "name": "hdsvm",
+      "description": "Efficient solution paths for penalized support vector machines.",
+      "source": null,
+      "cran": "https://cran.r-project.org/package=hdsvm"
+    }
+  ],
+  "homePublications": [
+    "fastkqr",
+    "quanda",
+    "fsa"
+  ],
+  "teaching": [
+    {
+      "role": "Instructor",
+      "institution": "University of Minnesota",
+      "courses": [
+        {
+          "code": "STAT 5021",
+          "title": "Statistical Analysis",
+          "terms": [
+            "Spring 2026"
+          ]
+        }
+      ]
+    },
+    {
+      "role": "Teaching Assistant",
+      "institution": "University of Iowa",
+      "courses": [
+        {
+          "code": "STAT 1030",
+          "title": "Statistics for Business",
+          "terms": [
+            "Fall 2021",
+            "Spring 2024"
+          ]
+        },
+        {
+          "code": "STAT 3510",
+          "title": "Biostatistics",
+          "terms": [
+            "Spring 2022",
+            "Fall 2022",
+            "Spring 2023"
+          ]
+        },
+        {
+          "code": "STAT 1020",
+          "title": "Elementary Statistics and Inference",
+          "terms": [
+            "Fall 2024"
+          ]
+        }
+      ]
+    }
+  ],
+  "news": [
+    {
+      "date": "2026",
+      "datetime": "2026",
+      "text": "Received the IMS New Researchers Travel Award."
+    },
+    {
+      "date": "Spring 2026",
+      "datetime": "2026",
+      "text": "Taught STAT 5021: Statistical Analysis at the University of Minnesota.",
+      "link": {
+        "label": "Teaching",
+        "url": "/Teaching/"
+      }
+    },
+    {
+      "date": "2025",
+      "datetime": "2025",
+      "text": "QuanDA appeared at NeurIPS 2025. Received the NeurIPS 2025 Scholar Award.",
+      "link": {
+        "label": "Publication",
+        "url": "/Publications/?q=QuanDA&type=publication"
+      }
+    },
+    {
+      "date": "Aug 2025",
+      "datetime": "2025-08",
+      "text": "Joined the University of Minnesota as an IRSA Faragher Distinguished Postdoctoral Fellow."
+    }
   ]
 }
