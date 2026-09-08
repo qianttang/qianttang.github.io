@@ -1,3 +1,3 @@
 User-agent: *
 Allow: /
-Sitemap: https://qianttang.github.io/qiantang.github.io/sitemap.xml
+Sitemap: https://qianttang.github.io/sitemap.xml

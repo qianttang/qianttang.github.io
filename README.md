@@ -1,14 +1,14 @@
 # Qian Tang — Academic Website
 
-Target website: https://qianttang.github.io/qiantang.github.io/
+Target website: https://qianttang.github.io/
 
 This repository is prepared for GitHub Pages. The site presents research, publications and manuscripts, R packages, the original CV, and academic contact details.
 
 ## Hosting
 
-Repository: https://github.com/qianttang/qiantang.github.io (public, main branch).
+Repository: https://github.com/qianttang/qianttang.github.io (public, main branch).
 
-This is a project site because the repository name differs from the GitHub account name. Its URL includes `/qiantang.github.io/`.
+This is the personal GitHub Pages site for the qianttang account. The repository name exactly matches qianttang.github.io, so the site is served at the domain root.
 
 In **Settings → Pages**, choose **Deploy from a branch**, then **main** and **/(root)**, and click **Save**. The site is ready to publish from the committed root directory; GitHub does not need to install dependencies or run a custom build.
 
