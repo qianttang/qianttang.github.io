@@ -6,3 +6,13 @@
 @media(max-width:374px){.software-grid{grid-template-columns:1fr}.install-command{flex-wrap:nowrap}.install-command code{font-size:11px}.copy-label{font-size:10px}.hero-copy>.eyebrow{font-size:7px}h1{font-size:59px}.hero-actions{gap:18px}.subtle-link{font-size:11px}.filters button{padding:8px;font-size:10px}.research-note{grid-template-columns:1fr 50px}.contour-art{width:60px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important;animation:none!important}}
 @media print{body{background:white;font-size:11px}.site-header,.hero-actions,.publication-tools,.results-count,.install-command,.copy-email,.citation-trigger,.site-footer,dialog,#toast{display:none!important}.page-shell{padding:0}.research-section{padding-top:0}.hero-grid{grid-template-columns:1fr}.research-note{display:none}.research-areas{margin-top:25px}.paper[hidden]{display:grid!important}.paper{break-inside:avoid}.software-grid{grid-template-columns:repeat(4,1fr)}a{color:inherit}.primary-button{background:white;color:black}.cv-contact-grid{gap:30px}}
+
+/* Shared navigation and standalone category pages. */
+.header-inner nav a[aria-current="page"]{color:var(--green);font-weight:600}
+.header-inner nav a[aria-current="page"]:after{content:'';position:absolute;left:0;bottom:3px;width:100%;height:1px;background:var(--green)}
+.subpage{min-height:calc(100vh - 174px)}
+.subpage>section:first-child{border-top:0;padding-top:60px;padding-bottom:64px}
+.section-heading .page-title{font-size:50px;line-height:1.2;letter-spacing:-1.6px;margin:12px 0 0}
+.contact-section .cv-contact-grid{border-top:0;margin-top:24px;padding-top:20px}
+@media(max-width:720px){.subpage>section:first-child{padding-top:36px;padding-bottom:40px}.section-heading .page-title{font-size:38px;letter-spacing:-1px}.contact-section .cv-contact-grid{margin-top:12px}}
+@media print{.subpage{min-height:0}.subpage>section:first-child{padding-top:0}}

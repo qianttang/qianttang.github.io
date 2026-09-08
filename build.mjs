@@ -1,4 +1,5 @@
 import { readFile, writeFile, mkdir, cp, readdir } from 'node:fs/promises';
+import { createHash } from 'node:crypto';
 const content = JSON.parse(await readFile('content.json', 'utf8'));
 const escape = value => String(value).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const ext = (label, url) => `<a href="${escape(url)}" target="_blank" rel="noopener noreferrer">${escape(label)} <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a>`;
@@ -11,8 +12,42 @@ const papers = content.papers.map(p => `<article class="paper" data-kind="${p.ki
   </div></article>`).join('\n');
 const software = content.software.map((p,i)=>`<article class="software-card"><div class="software-top"><span class="package-number">0${i+1}</span><span class="package-type">R PACKAGE</span></div><h3>${escape(p.name)}</h3><p>${escape(p.description)}</p><div class="package-links">${p.cran?ext('CRAN',p.cran):''}${p.source?ext('GitHub',p.source):''}</div>${p.cran?`<button class="install-command" data-copy='install.packages("${escape(p.name)}")' aria-label="Copy R installation command for ${escape(p.name)}"><code>install.packages("${escape(p.name)}")</code><span class="copy-label">Copy</span></button>`:`<p class="package-footnote">Installation instructions in the repository.</p>`}</article>`).join('\n');
 const template = await readFile('template.html','utf8');
+const [intro, publications, softwareSection, contact] = await Promise.all(['intro', 'publications', 'software', 'contact'].map(name => readFile(`partials/${name}.html`, 'utf8')));
+const origin = 'https://qianttang.github.io';
+const homeDescription = 'Qian Tang, IRSA Faragher Distinguished Postdoctoral Fellow at the University of Minnesota. Research in statistical learning, quantile regression, optimization, and high-dimensional data.';
+const research = intro
+  .replace('<h1 id="name">Qian Tang</h1>', '<h1 id="name">Research</h1>')
+  .replace('IRSA Faragher Distinguished Postdoctoral Fellow</p>', 'Statistical learning &amp; computation</p>')
+  .replace(' I received my Ph.D. in Statistics from the University of Iowa, advised by Boxiang Wang.', '');
+const pages = [
+  { name: 'Home', path: '/', title: 'Qian Tang | Statistical Learning & Computation', description: homeDescription, main: intro + publications + softwareSection.replace('<!-- CONTACT -->', contact) },
+  { name: 'Research', path: '/Research/', description: 'Qian Tang’s research in quantile methods, statistical computation, and learning across datasets.', main: research },
+  { name: 'Publications', path: '/Publications/', description: 'Search Qian Tang’s publications and manuscripts, explore paper links, and download BibTeX citations.', main: publications.replace('<h2 id="publications-title">', '<h1 class="page-title" id="publications-title">').replace('Publications &amp; manuscripts</h2>', 'Publications &amp; manuscripts</h1>').replace('01 / RESEARCH OUTPUT', 'RESEARCH OUTPUT') },
+  { name: 'Software', path: '/Software/', description: 'Open-source R packages by Qian Tang for statistical learning and computation.', main: softwareSection.replace('<!-- CONTACT -->', '').replace('<h2 id="software-title">Methods you can use.</h2>', '<h1 class="page-title" id="software-title">Software</h1>').replace('02 / OPEN-SOURCE SOFTWARE', 'OPEN-SOURCE SOFTWARE').replace('R packages that bring', 'Methods you can use. R packages that bring') },
+  { name: 'Contact', path: '/Contact/', description: 'Contact Qian Tang at the University of Minnesota and download the academic CV.', main: `<section class="contact-section" aria-labelledby="contact-title"><div class="section-heading"><div><p class="eyebrow">GET IN TOUCH</p><h1 class="page-title" id="contact-title">Contact</h1></div></div>${contact}</section>` }
+];
+const version = async file => createHash('sha256').update(await readFile('public/' + file)).digest('hex').slice(0, 10);
+const stylesVersion = await version('styles.css');
+const scriptVersion = await version('app.js');
 await mkdir('public/assets',{recursive:true});
-await writeFile('public/index.html',template.replace('<!-- PAPERS -->',papers).replace('<!-- SOFTWARE -->',software).replaceAll('{{EMAIL}}',escape(content.email)).replaceAll('{{GITHUB}}',escape(content.github)).replaceAll('{{SCHOLAR}}',escape(content.scholar)).replaceAll('{{CV}}',escape(content.cv)));
+for (const page of pages) {
+  const nav = pages.map(item => {
+    const cv = item.name === 'Contact' ? `<a href="{{CV}}" target="_blank" rel="noopener">CV <span aria-hidden="true">↗</span><span class="sr-only"> (PDF, opens in a new tab)</span></a>` : '';
+    return cv + `<a href="${item.path}"${item.name === page.name ? ' aria-current="page"' : ''}>${item.name}</a>`;
+  }).join('');
+  const html = template.replace('<!-- MAIN -->', page.main)
+    .replace('{{NAV}}', nav).replace('{{PAGE_CLASS}}', page.name === 'Home' ? '' : 'subpage')
+    .replace('{{TITLE}}', escape(page.title || `${page.name} | Qian Tang`))
+    .replace('{{DESCRIPTION}}', escape(page.description)).replace('{{CANONICAL}}', origin + page.path)
+    .replace('{{STYLES_VERSION}}', stylesVersion).replace('{{SCRIPT_VERSION}}', scriptVersion)
+    .replace('<!-- PAPERS -->', papers).replace('<!-- SOFTWARE -->', software)
+    .replaceAll('{{EMAIL}}', escape(content.email)).replaceAll('{{GITHUB}}', escape(content.github))
+    .replaceAll('{{SCHOLAR}}', escape(content.scholar)).replaceAll('{{CV}}', escape('/' + content.cv.replace(/^\/+/, '')));
+  const directory = 'public' + page.path;
+  await mkdir(directory, { recursive: true });
+  await writeFile(directory + 'index.html', html);
+}
+await writeFile('public/sitemap.xml', `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${pages.map(page => `  <url><loc>${origin}${page.path}</loc></url>`).join('\n')}\n</urlset>\n`);
 await writeFile('public/citations.js','window.SITE_CITATIONS = '+JSON.stringify(Object.fromEntries(content.papers.filter(p=>p.bibtex).map(p=>[p.id,{title:p.title,text:p.bibtex}]))).replace(/</g,'\\u003c')+';\n');
 for (const file of await readdir('public')) await cp('public/' + file, file, {recursive:true});
-console.log('Built academic site: '+content.papers.length+' papers, '+content.software.length+' packages.');
+console.log(`Built ${pages.length} static pages: ${content.papers.length} papers, ${content.software.length} packages.`);

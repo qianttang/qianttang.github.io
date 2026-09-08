@@ -4,6 +4,16 @@ Target website: https://qianttang.github.io/
 
 This repository is prepared for GitHub Pages. The site presents research, publications and manuscripts, R packages, the original CV, and academic contact details.
 
+## Pages
+
+- `/`: Home, preserving the original full overview.
+- `/Research/`: research interests and current work.
+- `/Publications/`: publications and manuscripts with search, type filters, and BibTeX downloads.
+- `/Software/`: R packages and installation commands.
+- `/Contact/`: contact details, academic background, and CV download.
+
+The navigation links to separate HTML pages. GitHub Pages redirects `/Research` to `/Research/` (and likewise for the other directories); direct visits and refreshes work without JavaScript. The CV navigation item opens `/assets/Qian-Tang-CV.pdf`. A focused publication view can be shared as `/Publications/?q=Bayesian&type=manuscript`.
+
 ## Hosting
 
 Repository: https://github.com/qianttang/qianttang.github.io (public, main branch).
@@ -15,7 +25,9 @@ In **Settings → Pages**, choose **Deploy from a branch**, then **main** and **
 ## Editing
 
 - `content.json`: publication metadata, BibTeX, software, email and profile links.
-- `template.html`: biography, research descriptions, education and contact layout.
+- `template.html`: shared page shell, header, footer and citation dialog.
+- `partials/*.html`: biography, research descriptions, publications, software, education and contact layout. Home and the category pages reuse these sections.
+- `build.mjs`: static page routes, navigation, page metadata and sitemap generation.
 - `public/styles.css`: styles and responsive layouts.
 - `public/app.js`: publication search/filtering, citations, copy buttons and mobile menu.
 - `public/assets/Qian-Tang-CV.pdf`: the supplied three-page CV.
