@@ -45,3 +45,4 @@
 /* Background biography */
 .hero-copy .bio{font-size:16px}
 .bio a{color:var(--green);text-decoration:underline;text-underline-offset:3px}
+.hero-actions{flex-wrap:wrap;row-gap:14px}

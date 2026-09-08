@@ -2,6 +2,7 @@
   "name": "Qian Tang",
   "email": "tang1015@umn.edu",
   "github": "https://github.com/qianttang",
+  "linkedin": "https://www.linkedin.com/in/qian-tang-5a445a169",
   "scholar": "https://scholar.google.com/citations?user=GMG9gcsAAAAJ&hl=en",
   "cv": "assets/Qian-Tang-CV.pdf",
   "papers": [
@@ -47,8 +48,8 @@
           "url": "https://proceedings.neurips.cc/paper_files/paper/2025/file/ea34f9c3acb3de6fa29582ff469bcd6b-Paper-Conference.pdf"
         },
         {
-          "label": "Code",
-          "url": "https://github.com/qianttang/QuanDA"
+          "label": "CRAN",
+          "url": "https://cran.r-project.org/package=QuanDA"
         }
       ],
       "bibtex": "@inproceedings{tang2025quanda,\n  title = {{QuanDA}: Quantile-Based Discriminant Analysis for High-Dimensional Imbalanced Classification},\n  author = {Tang, Qian and Gu, Yuwen and Wang, Boxiang},\n  booktitle = {Advances in Neural Information Processing Systems},\n  volume = {38},\n  year = {2025},\n  url = {https://proceedings.neurips.cc/paper_files/paper/2025/file/ea34f9c3acb3de6fa29582ff469bcd6b-Paper-Conference.pdf}\n}"
@@ -123,25 +124,21 @@
     {
       "name": "QuanDA",
       "description": "Quantile-based discriminant analysis for high-dimensional imbalanced classification.",
-      "source": "https://github.com/qianttang/QuanDA",
-      "cran": null
+      "cran": "https://cran.r-project.org/package=QuanDA"
     },
     {
       "name": "fastkqr",
       "description": "Fast kernel quantile regression with support for non-crossing quantile curves.",
-      "source": "https://github.com/qianttang/fastkqr",
       "cran": "https://cran.r-project.org/package=fastkqr"
     },
     {
       "name": "hdqr",
       "description": "Regularization paths for penalized quantile regression in high dimensions.",
-      "source": "https://github.com/qianttang/hdqr",
       "cran": "https://cran.r-project.org/package=hdqr"
     },
     {
       "name": "hdsvm",
       "description": "Efficient solution paths for penalized support vector machines.",
-      "source": null,
       "cran": "https://cran.r-project.org/package=hdsvm"
     }
   ],

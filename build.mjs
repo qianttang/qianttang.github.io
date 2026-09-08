@@ -10,7 +10,7 @@ const renderPapers = items => items.map(p => `<article class="paper" data-paper-
   <p class="venue">${escape(p.venue)}</p><p class="paper-summary">${escape(p.summary)}</p>
   <div class="paper-links">${p.links.map(l=>ext(l.label,l.url)).join('')}${p.bibtex?`<button class="text-button citation-trigger" data-citation="${p.id}" aria-haspopup="dialog">BibTeX <span aria-hidden="true">＋</span></button>`:''}${p.note?`<span class="forthcoming">${escape(p.note)}</span>`:''}</div>
   </div></article>`).join('\n');
-const software = content.software.map((p,i)=>`<article class="software-card"><div class="software-top"><span class="package-number">0${i+1}</span><span class="package-type">R PACKAGE</span></div><h3>${escape(p.name)}</h3><p>${escape(p.description)}</p><div class="package-links">${p.cran?ext('CRAN',p.cran):''}${p.source?ext('GitHub',p.source):''}</div>${p.cran?`<button class="install-command" data-copy='install.packages("${escape(p.name)}")' aria-label="Copy R installation command for ${escape(p.name)}"><code>install.packages("${escape(p.name)}")</code><span class="copy-label">Copy</span></button>`:`<p class="package-footnote">Installation instructions in the repository.</p>`}</article>`).join('\n');
+const software = content.software.map((p,i)=>`<article class="software-card"><div class="software-top"><span class="package-number">0${i+1}</span><span class="package-type">R PACKAGE</span></div><h3>${escape(p.name)}</h3><p>${escape(p.description)}</p><div class="package-links">${p.cran?ext('CRAN',p.cran):''}</div>${p.cran?`<button class="install-command" data-copy='install.packages("${escape(p.name)}")' aria-label="Copy R installation command for ${escape(p.name)}"><code>install.packages("${escape(p.name)}")</code><span class="copy-label">Copy</span></button>`:''}</article>`).join('\n');
 const template = await readFile('template.html','utf8');
 const [intro, publications, softwareSection, contact, research, selectedSection, newsSection, teachingSection] = await Promise.all(['intro', 'publications', 'software', 'contact', 'research', 'selected-publications', 'news', 'teaching'].map(name => readFile(`partials/${name}.html`, 'utf8')));
 const selectedPapers = content.homePublications.map(id => {
@@ -46,7 +46,8 @@ for (const page of pages) {
     .replace('<!-- PAPERS -->', renderPapers(content.papers)).replace('<!-- SELECTED PAPERS -->', renderPapers(selectedPapers))
     .replace('<!-- NEWS -->', news).replace('<!-- TEACHING -->', teaching).replace('<!-- SOFTWARE -->', software)
     .replaceAll('{{EMAIL}}', escape(content.email)).replaceAll('{{GITHUB}}', escape(content.github))
-    .replaceAll('{{SCHOLAR}}', escape(content.scholar)).replaceAll('{{CV}}', escape('/' + content.cv.replace(/^\/+/, '')));
+    .replaceAll('{{SCHOLAR}}', escape(content.scholar)).replaceAll('{{LINKEDIN}}', escape(content.linkedin))
+    .replaceAll('{{CV}}', escape('/' + content.cv.replace(/^\/+/, '')));
   const directory = 'public' + page.path;
   await mkdir(directory, { recursive: true });
   await writeFile(directory + 'index.html', html);
