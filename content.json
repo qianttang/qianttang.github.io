@@ -132,6 +132,12 @@
       "links": []
     }
   ],
+  "softwarePageOrder": [
+    "fastkqr",
+    "hdqr",
+    "hdsvm",
+    "QuanDA"
+  ],
   "software": [
     {
       "name": "QuanDA",

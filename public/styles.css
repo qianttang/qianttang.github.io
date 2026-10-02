@@ -50,3 +50,20 @@
 /* Text-only research note on the homepage. */
 .hero-grid .research-note{display:block}
 .hero-grid .research-note h2{margin-top:20px}
+
+/* The Software page presents each package as a full-width list entry. */
+.software-list{display:flex;flex-direction:column;margin-top:32px;max-width:940px;border-top:1px solid var(--line)}
+.software-entry{padding:24px 0;border-bottom:1px solid var(--line)}
+.software-entry-heading{display:flex;align-items:center;flex-wrap:wrap;gap:12px 22px}
+.software-entry-heading h2{font:500 25px/1.3 var(--sans);letter-spacing:-.6px}
+.download-badge{display:inline-flex;align-items:center;min-height:28px;max-width:100%}
+.download-badge img{display:block;height:20px;max-width:100%;font-size:12px;color:var(--muted)}
+.software-entry>p{font-size:16px;color:var(--muted);line-height:1.7;margin-top:10px}
+.software-entry-actions{display:flex;align-items:center;flex-wrap:wrap;gap:12px 28px;margin-top:14px}
+.software-entry .package-links{font-size:14px;padding:0;margin:0}
+.software-entry .install-command{width:fit-content;max-width:100%;gap:22px;padding:9px 12px;min-height:40px;flex-wrap:wrap}
+.software-entry .install-command code{font-size:13px;letter-spacing:0}
+.software-entry .copy-label{font-size:12px}
+.download-note{font-size:13px;line-height:1.7;color:var(--muted);margin-top:22px;max-width:940px}
+.download-note a{color:var(--green);text-decoration:underline;text-underline-offset:3px}
+@media(max-width:720px){.software-list{margin-top:26px}.software-entry{padding:22px 0}.software-entry-heading{gap:10px 18px}.software-entry-heading h2{font-size:23px}.software-entry-actions{gap:12px 20px}.software-entry .package-links a{min-height:40px}.software-entry .install-command code{font-size:12px}}

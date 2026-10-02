@@ -9,7 +9,7 @@ This repository is prepared for GitHub Pages. The site presents research, public
 - `/`: Home, with the biography, News, three selected publications (JCGS, NeurIPS, ICML), software, CV and contact details.
 - `/Publications/`: publications, manuscripts, and ongoing projects with search, type filters, and BibTeX downloads.
 - `/Teaching/`: instructor and teaching assistant experience, with course titles and semesters from the supplied CV.
-- `/Software/`: R packages and installation commands.
+- `/Software/`: a vertical list of fastkqr, hdqr, hdsvm, and QuanDA, with CRAN links, cumulative download badges, and installation commands.
 - `/Contact/`: contact details, academic background, and CV download.
 
 The navigation links to separate HTML pages. GitHub Pages adds the trailing slash for directory URLs; direct visits and refreshes work without JavaScript. The old `/Research/` URL redirects to `/Publications/`, preserving existing bookmarks. The CV navigation item opens `/assets/Qian-Tang-CV.pdf`. A focused publication view can be shared as `/Publications/?q=Bayesian&type=manuscript`.
@@ -24,7 +24,7 @@ In **Settings → Pages**, choose **Deploy from a branch**, then **main** and **
 
 ## Editing
 
-- `content.json`: publication metadata, the explicit `homePublications` selection, BibTeX, teaching courses, News entries, software, email and profile links.
+- `content.json`: publication metadata, the explicit `homePublications` selection, BibTeX, teaching courses, News entries, software, the `softwarePageOrder` list, email and profile links.
 - `template.html`: shared page shell, header, footer and citation dialog.
 - `partials/*.html`: biography, research descriptions, selected and full publication lists, News, teaching, software, education and contact layout.
 - `build.mjs`: static page routes, navigation, page metadata and sitemap generation.
@@ -41,6 +41,8 @@ npm run build
 Commit the changed source files and regenerated root HTML, JavaScript, and assets. GitHub Pages then deploys the updated site. To preview locally, run `npm start` and open http://localhost:3000. No dependency installation is required; the scripts use Node.js built-ins.
 
 ## Content notes
+
+The Software page uses live `https://cranlogs.r-pkg.org/badges/grand-total/{package}` images, matching the download badge type on Boxiang Wang's website. These show cumulative downloads recorded by the RStudio CRAN mirror, rather than all CRAN mirrors. The images update through the external service; no download counts are hard-coded. The Software page has its own order and vertical layout; the homepage keeps its compact software cards.
 
 ATLAS is listed as a 2026 publication at The First Conference on Statistics and Trustworthy AI for Cross (X)-Domain Acceleration (STAI-X), as confirmed by the owner. The ongoing TransDWD project and its author list were also supplied by the owner. Missing manuscript links are clearly labeled forthcoming. fastkqr uses the final 2026 volume/issue citation and notes its online publication in 2025. The original PDF remains unchanged.
 
