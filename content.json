@@ -33,6 +33,23 @@
       "bibtex": "@article{tang2026fastkqr,\n  title = {fastkqr: A Fast Algorithm for Kernel Quantile Regression},\n  author = {Tang, Qian and Gu, Yuwen and Wang, Boxiang},\n  journal = {Journal of Computational and Graphical Statistics},\n  year = {2026},\n  volume = {35},\n  number = {1},\n  pages = {395--405},\n  doi = {10.1080/10618600.2025.2541004}\n}"
     },
     {
+      "id": "atlas",
+      "year": "2026",
+      "kind": "publication",
+      "status": "STAI-X",
+      "title": "The ATLAS Penalty: Auxiliary-Transformed Location-Aware Smoothing with Applications to Spatial Transcriptomics",
+      "authors": "Qian Tang, Eric Chi, and Wenyi Wang",
+      "venue": "The First Conference on Statistics and Trustworthy AI for Cross (X)-Domain Acceleration, 2026.",
+      "summary": "Location-aware smoothing for structured spatial transcriptomics data.",
+      "topics": "spatial transcriptomics smoothing optimization atlas",
+      "links": [
+        {
+          "label": "OpenReview",
+          "url": "https://openreview.net/forum?id=n5VvlyCIT5"
+        }
+      ]
+    },
+    {
       "id": "quanda",
       "year": "2025",
       "kind": "publication",
@@ -77,23 +94,6 @@
       "bibtex": "@inproceedings{tang2024fsa,\n  title = {Finite Smoothing Algorithm for High-Dimensional Support Vector Machines and Quantile Regression},\n  author = {Tang, Qian and Zhang, Yikai and Wang, Boxiang},\n  booktitle = {Proceedings of the 41st International Conference on Machine Learning},\n  series = {Proceedings of Machine Learning Research},\n  volume = {235},\n  pages = {47865--47884},\n  year = {2024},\n  url = {https://proceedings.mlr.press/v235/tang24j.html}\n}"
     },
     {
-      "id": "atlas",
-      "year": "2026",
-      "kind": "manuscript",
-      "status": "Status to confirm",
-      "title": "The ATLAS Penalty: Auxiliary-Transformed Location-Aware Smoothing with Applications to Spatial Transcriptomics",
-      "authors": "Qian Tang, Eric Chi, and Wenyi Wang",
-      "venue": "STAI-X 2026 · Listed in the CV; final publication status to be confirmed.",
-      "summary": "Location-aware smoothing for structured spatial transcriptomics data.",
-      "topics": "spatial transcriptomics smoothing optimization atlas",
-      "links": [
-        {
-          "label": "OpenReview",
-          "url": "https://openreview.net/forum?id=n5VvlyCIT5"
-        }
-      ]
-    },
-    {
       "id": "win-score",
       "year": "2026",
       "kind": "manuscript",
@@ -117,6 +117,18 @@
       "summary": "Developing Bayesian approaches to high-dimensional imbalanced classification and uncertainty quantification.",
       "topics": "bayesian classification uncertainty quantile regression high dimensional imbalance",
       "note": "Preprint and code forthcoming.",
+      "links": []
+    },
+    {
+      "id": "transdwd",
+      "year": "Ongoing",
+      "kind": "manuscript",
+      "status": "In preparation",
+      "title": "Transfer Learning for High-Dimensional Multiclass Distance Weighted Discrimination",
+      "authors": "Qian Tang, Boxiang Wang, and Hui Zou",
+      "venue": "Research in progress.",
+      "summary": "Transfer learning for high-dimensional multiclass classification using distance weighted discrimination.",
+      "topics": "transfer learning high dimensional multiclass classification distance weighted discrimination transdwd",
       "links": []
     }
   ],

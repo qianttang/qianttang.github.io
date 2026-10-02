@@ -7,12 +7,12 @@ This repository is prepared for GitHub Pages. The site presents research, public
 ## Pages
 
 - `/`: Home, with the biography, News, three selected publications (JCGS, NeurIPS, ICML), software, CV and contact details.
-- `/Publications/`: publications and manuscripts with search, type filters, and BibTeX downloads, followed by research interests and current work.
+- `/Publications/`: publications, manuscripts, and ongoing projects with search, type filters, and BibTeX downloads.
 - `/Teaching/`: instructor and teaching assistant experience, with course titles and semesters from the supplied CV.
 - `/Software/`: R packages and installation commands.
 - `/Contact/`: contact details, academic background, and CV download.
 
-The navigation links to separate HTML pages. GitHub Pages adds the trailing slash for directory URLs; direct visits and refreshes work without JavaScript. The old `/Research/` URL redirects to `/Publications/#research`, preserving existing bookmarks. The CV navigation item opens `/assets/Qian-Tang-CV.pdf`. A focused publication view can be shared as `/Publications/?q=Bayesian&type=manuscript`.
+The navigation links to separate HTML pages. GitHub Pages adds the trailing slash for directory URLs; direct visits and refreshes work without JavaScript. The old `/Research/` URL redirects to `/Publications/`, preserving existing bookmarks. The CV navigation item opens `/assets/Qian-Tang-CV.pdf`. A focused publication view can be shared as `/Publications/?q=Bayesian&type=manuscript`.
 
 ## Hosting
 
@@ -42,7 +42,7 @@ Commit the changed source files and regenerated root HTML, JavaScript, and asset
 
 ## Content notes
 
-ATLAS appears in both the supplied CV's publication and in-preparation lists. It is shown once, with its status marked for confirmation. Missing manuscript links are clearly labeled forthcoming. fastkqr uses the final 2026 volume/issue citation and notes its online publication in 2025. The original PDF remains unchanged.
+ATLAS is listed as a 2026 publication at The First Conference on Statistics and Trustworthy AI for Cross (X)-Domain Acceleration (STAI-X), as confirmed by the owner. The ongoing TransDWD project and its author list were also supplied by the owner. Missing manuscript links are clearly labeled forthcoming. fastkqr uses the final 2026 volume/issue citation and notes its online publication in 2025. The original PDF remains unchanged.
 
 Teaching is transcribed from page 3 of the supplied August 2026 CV: STAT 5021 at Minnesota (Spring 2026); STAT 1030 at Iowa (Fall 2021, Spring 2024); STAT 3510 at Iowa (Spring 2022, Fall 2022, Spring 2023); STAT 1020 at Iowa (Fall 2024). Instructor and teaching assistant roles are kept distinct.
 

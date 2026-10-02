@@ -12,7 +12,7 @@ const renderPapers = items => items.map(p => `<article class="paper" data-paper-
   </div></article>`).join('\n');
 const software = content.software.map((p,i)=>`<article class="software-card"><div class="software-top"><span class="package-number">0${i+1}</span><span class="package-type">R PACKAGE</span></div><h3>${escape(p.name)}</h3><p>${escape(p.description)}</p><div class="package-links">${p.cran?ext('CRAN',p.cran):''}</div>${p.cran?`<button class="install-command" data-copy='install.packages("${escape(p.name)}")' aria-label="Copy R installation command for ${escape(p.name)}"><code>install.packages("${escape(p.name)}")</code><span class="copy-label">Copy</span></button>`:''}</article>`).join('\n');
 const template = await readFile('template.html','utf8');
-const [intro, publications, softwareSection, contact, research, selectedSection, newsSection, teachingSection] = await Promise.all(['intro', 'publications', 'software', 'contact', 'research', 'selected-publications', 'news', 'teaching'].map(name => readFile(`partials/${name}.html`, 'utf8')));
+const [intro, publications, softwareSection, contact, selectedSection, newsSection, teachingSection] = await Promise.all(['intro', 'publications', 'software', 'contact', 'selected-publications', 'news', 'teaching'].map(name => readFile(`partials/${name}.html`, 'utf8')));
 const selectedPapers = content.homePublications.map(id => {
   const paper = content.papers.find(p => p.id === id);
   if (!paper || paper.kind !== 'publication') throw new Error(`Invalid selected publication: ${id}`);
@@ -24,7 +24,7 @@ const origin = 'https://qianttang.github.io';
 const homeDescription = 'Qian Tang, IRSA Faragher Distinguished Postdoctoral Fellow at the University of Minnesota. Research in statistical learning, quantile regression, optimization, and high-dimensional data.';
 const pages = [
   { name: 'Home', path: '/', title: 'Qian Tang | Statistical Learning & Computation', description: homeDescription, main: intro + newsSection + selectedSection + softwareSection.replace('<!-- CONTACT -->', contact) },
-  { name: 'Publications', path: '/Publications/', description: 'Qian Tang’s research interests, publications and manuscripts, with search, type filters, and BibTeX citations.', main: publications.replace('<h2 id="publications-title">', '<h1 class="page-title" id="publications-title">').replace('Publications &amp; manuscripts</h2>', 'Publications &amp; research</h1>').replace('01 / RESEARCH OUTPUT', 'RESEARCH OUTPUT').replace('Selected work in statistical learning, computation, and applications.', 'Publications and ongoing work in statistical learning, computation, and applications. <a class="research-jump" href="#research">Research interests ↓</a>') + research },
+  { name: 'Publications', path: '/Publications/', description: 'Qian Tang’s publications, manuscripts, and ongoing projects, with search, type filters, and BibTeX citations.', main: publications.replace('<h2 id="publications-title">', '<h1 class="page-title" id="publications-title">').replace('Publications &amp; manuscripts</h2>', 'Publications &amp; manuscripts</h1>').replace('01 / RESEARCH OUTPUT', 'RESEARCH OUTPUT').replace('Selected work in statistical learning, computation, and applications.', 'Publications and ongoing work in statistical learning, computation, and applications.') },
   { name: 'Teaching', path: '/Teaching/', description: 'Qian Tang’s teaching experience as an instructor at the University of Minnesota and a teaching assistant at the University of Iowa.', main: teachingSection },
   { name: 'Software', path: '/Software/', description: 'Open-source R packages by Qian Tang for statistical learning and computation.', main: softwareSection.replace('<!-- CONTACT -->', '').replace('<h2 id="software-title">Methods you can use.</h2>', '<h1 class="page-title" id="software-title">Software</h1>').replace('03 / OPEN-SOURCE SOFTWARE', 'OPEN-SOURCE SOFTWARE').replace('R packages that bring', 'Methods you can use. R packages that bring') },
   { name: 'Contact', path: '/Contact/', description: 'Contact Qian Tang at the University of Minnesota and download the academic CV.', main: `<section class="contact-section" aria-labelledby="contact-title"><div class="section-heading"><div><p class="eyebrow">GET IN TOUCH</p><h1 class="page-title" id="contact-title">Contact</h1></div></div>${contact}</section>` }
@@ -44,6 +44,9 @@ for (const page of pages) {
     .replace('{{DESCRIPTION}}', escape(page.description)).replace('{{CANONICAL}}', origin + page.path)
     .replace('{{STYLES_VERSION}}', stylesVersion).replace('{{SCRIPT_VERSION}}', scriptVersion)
     .replace('<!-- PAPERS -->', renderPapers(content.papers)).replace('<!-- SELECTED PAPERS -->', renderPapers(selectedPapers))
+    .replaceAll('{{ALL_WORK_COUNT}}', content.papers.length)
+    .replaceAll('{{PUBLICATION_COUNT}}', content.papers.filter(p => p.kind === 'publication').length)
+    .replaceAll('{{MANUSCRIPT_COUNT}}', content.papers.filter(p => p.kind === 'manuscript').length)
     .replace('<!-- NEWS -->', news).replace('<!-- TEACHING -->', teaching).replace('<!-- SOFTWARE -->', software)
     .replaceAll('{{EMAIL}}', escape(content.email)).replaceAll('{{GITHUB}}', escape(content.github))
     .replaceAll('{{SCHOLAR}}', escape(content.scholar)).replaceAll('{{LINKEDIN}}', escape(content.linkedin))
@@ -55,7 +58,7 @@ for (const page of pages) {
 // Preserve existing bookmarks when merging Research into Publications.
 await mkdir('public/Research', { recursive: true });
 await writeFile('public/Research/index.html', `<!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Research | Qian Tang</title><meta name="robots" content="noindex, follow"><link rel="canonical" href="${origin}/Publications/"><meta http-equiv="refresh" content="0;url=/Publications/#research"><link rel="stylesheet" href="/styles.css?v=${stylesVersion}"></head><body><main class="page-shell"><h1 class="page-title">Research</h1><p>Research is now part of <a class="text-link" href="/Publications/#research">Publications &amp; research ↗</a>.</p></main></body></html>\n`);
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Research | Qian Tang</title><meta name="robots" content="noindex, follow"><link rel="canonical" href="${origin}/Publications/"><meta http-equiv="refresh" content="0;url=/Publications/"><link rel="stylesheet" href="/styles.css?v=${stylesVersion}"></head><body><main class="page-shell"><h1 class="page-title">Research</h1><p>Research is now part of <a class="text-link" href="/Publications/">Publications &amp; manuscripts ↗</a>.</p></main></body></html>\n`);
 await writeFile('public/sitemap.xml', `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${pages.map(page => `  <url><loc>${origin}${page.path}</loc></url>`).join('\n')}\n</urlset>\n`);
 await writeFile('public/citations.js','window.SITE_CITATIONS = '+JSON.stringify(Object.fromEntries(content.papers.filter(p=>p.bibtex).map(p=>[p.id,{title:p.title,text:p.bibtex}]))).replace(/</g,'\\u003c')+';\n');
 for (const file of await readdir('public')) await cp('public/' + file, file, {recursive:true});
