@@ -46,3 +46,7 @@
 .hero-copy .bio{font-size:16px}
 .bio a{color:var(--green);text-decoration:underline;text-underline-offset:3px}
 .hero-actions{flex-wrap:wrap;row-gap:14px}
+
+/* Text-only research note on the homepage. */
+.hero-grid .research-note{display:block}
+.hero-grid .research-note h2{margin-top:20px}
